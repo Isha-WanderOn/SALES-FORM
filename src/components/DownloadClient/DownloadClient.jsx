@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
+import { Row } from "../../../pages/BookingSummary/BookingSummary.style";
 import { Form } from "../../context/FormContext";
 import Dropdowninput from "../DropdownInput/Dropdowninput";
 import FormInput from "../FormInputs/FormInput";
 import Heading from "../Headings/Heading";
+import { BookingButton, MainHeading1 } from "../LeftSidebar/LeftSidebar.style";
 import { OuterDiv } from "../Voucher/Voucher.style";
-import { InputSection, InputSection2, Select } from "./ClientDetails.style";
-import { Button, Modal } from "react-bootstrap";
-import Modals from "../Modal/Modals";
+import { InputSection, InputSection2, Select } from "./DownloadClient.style";
 
-const ClientDetails = () => {
+const DownloadClient = () => {
   const {
     name,
     email,
@@ -17,9 +17,9 @@ const ClientDetails = () => {
     voucher,
     gender,
     show,
-    code,
-    setCode,
     setShow,
+    otherClient,
+    setOtherClient,
     setGender,
     setVoucher,
     setAddress,
@@ -27,12 +27,14 @@ const ClientDetails = () => {
     setName,
     setPhone,
   } = useContext(Form);
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-console.log(phone);
+  
+  
   return (
     <OuterDiv>
-      <Heading Heading="Client Details" />
+      {/* <Heading Heading="Client Details" /> */}
+      <Row>
+        <MainHeading1>Client Information</MainHeading1>
+      </Row>
       <InputSection>
         <FormInput
           value={name}
@@ -62,11 +64,10 @@ console.log(phone);
           label="Address"
           wid=""
           placeholder="Enter Full Address"
-          required
         />
       </InputSection>
       <InputSection2>
-        <Select onChange={(e)=>setCode(e.target.value)}>
+        <Select>
           <option value="+91">+91</option>
           <option value="+11">+11</option>
           <option value="+23">+23</option>
@@ -74,7 +75,7 @@ console.log(phone);
         <FormInput
           value={phone}
           type="String"
-          onChange={(e)=> setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value)}
           name="ClientPhone"
           label="Phone Number"
           wid="half"
@@ -98,7 +99,7 @@ console.log(phone);
           <option value="Goa">Goa</option>
         </Dropdowninput>
       </InputSection2>
-      <InputSection2>
+      <div style={{ marginLeft: "2rem" }}>
         <Dropdowninput
           wid="half"
           label="Gender"
@@ -111,9 +112,10 @@ console.log(phone);
           <option value="Male">Male</option>
           <option value="female">Female</option>
         </Dropdowninput>
-      </InputSection2>
+        {/* <BookingButton onClick={handleClick}>Add</BookingButton> */}
+      </div>
     </OuterDiv>
   );
 };
 
-export default ClientDetails;
+export default DownloadClient;

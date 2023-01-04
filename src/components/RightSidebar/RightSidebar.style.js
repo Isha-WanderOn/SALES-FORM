@@ -76,3 +76,16 @@ export const Span = styled.span`
   color: rgba(140, 140, 140, 0.8);
   margin-left: 11.80vw;
 `;
+
+export const Bullet = styled.div`
+margin-top: 0.5rem;
+  height: 2.3rem;
+  width: 4.25vw;
+  border-radius: 10px;
+  background-color: #0A9E88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+
+`;

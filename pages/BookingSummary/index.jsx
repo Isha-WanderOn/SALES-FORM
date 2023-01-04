@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
+import DownloadClient from "../../src/components/DownloadClient/DownloadClient";
 import FormInput from "../../src/components/FormInputs/FormInput";
 import { BookingButton } from "../../src/components/LeftSidebar/LeftSidebar.style";
+import OtherClient from "../../src/components/OtherClient/OtherClient";
 import {
   Details,
   Hr,
@@ -17,8 +19,12 @@ import {
 } from "./BookingSummary.style";
 
 const BookingSummary = () => {
-  const { startdate, enddate, refrenceno,count5k, count10k  } = useContext(Form);
-  const [ calc5, setCalc5] = useState(0);
+  const { refrenceno, count5k, count10k } = useContext(Form);
+  const [download, setDownload] = useState(false);
+
+  const handleDownload = () => {
+    download === true ? setDownload(false) : setDownload(true);
+  };
   return (
     <Marginer>
       <Row>
@@ -26,27 +32,6 @@ const BookingSummary = () => {
       </Row>
       <Row2>
         <H1>Reference no.- {refrenceno}</H1>
-        <H1>Destination Name</H1>
-      </Row2>
-      <Row2>
-        <FormInput
-          value={startdate}
-          type="date"
-          name="startdate"
-          label="Start date"
-          wid="half"
-          disabled
-          style={{ background: "rgba(10, 158, 136, 5%)" }}
-        />
-        <FormInput
-          value={enddate}
-          type="date"
-          name="enddate"
-          label="End date"
-          wid="half"
-          disabled
-          style={{ background: "rgba(215, 31, 31, 5%)" }}
-        />
       </Row2>
       <Row2>
         <Box>
@@ -60,7 +45,7 @@ const BookingSummary = () => {
           >
             <div>
               <H1>Early Bird Offer - 5k</H1>
-              <H1>Rs. 5000/-</H1>
+              <H1 pay>Rs. 5000/-</H1>
             </div>
             <H1>X</H1>
             <H1>{count5k}</H1>
@@ -81,12 +66,12 @@ const BookingSummary = () => {
           >
             <div>
               <H1>Early Bird Offer - 10k</H1>
-              <H1>Rs. 10,000/-</H1>
+              <H1 pay>Rs. 10,000/-</H1>
             </div>
             <H1>X</H1>
             <H1>{count10k}</H1>
             <H1>=</H1>
-            <H1>Rs.{ 10000 * count5k}</H1>
+            <H1>Rs.{10000 * count10k}</H1>
           </div>
         </Box>
       </Row2>
@@ -98,17 +83,7 @@ const BookingSummary = () => {
         <div style={{ width: "50%" }}>
           <Details>
             <P style={{ fontWeight: "600" }}>Total Price</P>
-            <P>Rs. 80,000/-</P>
-          </Details>
-          <Hr small />
-          <Details>
-            <P gr>Total Discount</P>
-            <P gr> -Rs. 5000/-</P>
-          </Details>
-          <Hr small />
-          <Details>
-            <P>Price After Discount</P>
-            <P> Rs. 75,000/-</P>
+            <P>Rs. {5000 * count5k + 10000 * count10k}/-</P>
           </Details>
           <Hr small />
           <Details>
@@ -118,13 +93,21 @@ const BookingSummary = () => {
           <Hr small />
           <Details>
             <P style={{ fontWeight: "600" }}>Grand total</P>
-            <P style={{ color: " #FE2F37" }}> Rs. 77,000/-</P>
+            <P style={{ color: " #FE2F37" }}>
+              Rs. {5000 * count5k + 10000 * count10k + 2000}/-
+            </P>
           </Details>
         </div>
       </Row2>
-      <Row>
-        <BookingButton>Download Booking Voucher</BookingButton>
-      </Row>
+      {download === true ? (
+        <><DownloadClient /><OtherClient /></>
+      ) : (
+        <Row>
+          <BookingButton onClick={handleDownload}>
+            Download Booking Voucher
+          </BookingButton>
+        </Row>
+      )}
     </Marginer>
   );
 };

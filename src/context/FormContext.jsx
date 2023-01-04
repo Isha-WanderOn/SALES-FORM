@@ -28,6 +28,9 @@ const FormContext = (props) => {
   const [Remark, setRemark] = useState("");
   const [screenshot, setScreenshot] = useState(null);
   const [show, setShow] = useState(false);
+  const [code, setCode] = useState('');
+  const [salecode, setSaleCode] = useState('');
+  const [otherClient, setOtherClient] = useState([]);
 
   return (
     <Form.Provider
@@ -57,6 +60,12 @@ const FormContext = (props) => {
         Remark,
         screenshot,
         show, 
+        code,
+        salecode,
+        otherClient,
+        setOtherClient,
+        setSaleCode,
+        setCode,
         setShow,
         setCount5k,
         setCount10k,

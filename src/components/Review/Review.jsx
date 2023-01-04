@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Form } from "../../context/FormContext";
 import {
   Details,
   TopHeading,
@@ -7,9 +8,11 @@ import {
   Hr,
   Li,
   Span,
+  Bullet,
 } from "../RightSidebar/RightSidebar.style";
 
 const Review = () => {
+  const {count10k, count5k} = useContext(Form);
   return (
     <div>
       <div>
@@ -22,7 +25,7 @@ const Review = () => {
           <span
             style={{ fontSize: "1rem", lineHeight: "12.1px", color: "#8C8C8C" }}
           >
-            Base Price
+            <Bullet>{count5k}</Bullet>
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -36,42 +39,12 @@ const Review = () => {
       </Details>
       <Hr />
       <Details>
-        <ul style={{ listStylePosition: "inside" }}>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Li>Badal ranjan</Li>
-            <Span>Male</Span>
-          </div>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: "0.8rem",
-            }}
-          >
-            <Li>Mayank</Li>
-            <Span>Male</Span>
-          </div>
-        </ul>
-      </Details>
-      <hr />
-      <Details>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <P  style={{color: '#171717'}}>Early Bird Offer - 10k</P>
           <span
             style={{ fontSize: "1rem", lineHeight: "12.1px", color: "#8C8C8C" }}
           >
-            Base Price
+            <Bullet>{count10k}</Bullet>
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -82,36 +55,6 @@ const Review = () => {
             Per Person
           </span>
         </div>
-      </Details>
-      <Hr />
-      <Details>
-        <ul style={{ listStylePosition: "inside" }}>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Li>Badal ranjan</Li>
-            <Span>Male</Span>
-          </div>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: "0.8rem",
-            }}
-          >
-            <Li>Mayank</Li>
-            <Span>Male</Span>
-          </div>
-        </ul>
       </Details>
     </div>
   );

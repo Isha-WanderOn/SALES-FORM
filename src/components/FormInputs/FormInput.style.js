@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   .input-outline {
-    width: ${(props) => (props.wid === "half" ? "23.35vw" : "49vw")};
+    width: ${(props) => (props.wid === "half" ? "24.5vw" : "49vw")};
     position: relative;
     display: flex;
     margin-bottom: 30px;

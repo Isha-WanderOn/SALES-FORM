@@ -17,10 +17,12 @@ const PaymentDetails = () => {
     recievedAmt,
     leadSrc,
     salesPhn,
+    salescode,
     payment,
     salesFullname,
     salesEmail,
     Remark,
+    setSaleCode,
     setRemark,
     setSalesEmail,
     setSalesFullname,
@@ -70,7 +72,7 @@ const PaymentDetails = () => {
         />
       </InputSection2>
       <InputSection2>
-        <Select>
+        <Select onChange={(e)=> setSaleCode(e.target.value)}>
           <option>+91</option>
           <option>+11</option>
           <option>+23</option>
@@ -82,7 +84,7 @@ const PaymentDetails = () => {
           name="InputOutlined"
           label="Phone Number"
           wid="half"
-          placeholder="9909483710"
+          placeholder="Enter Phone No."
           required
         />
         <Dropdowninput

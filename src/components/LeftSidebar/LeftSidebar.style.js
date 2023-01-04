@@ -24,3 +24,15 @@ export const BookingButton = styled.button`
   }
 
 `;
+
+export const MainHeading1 = styled.h1`
+  font-size: 3rem;
+  line-height: 36.31px;
+  font-weight: 600;
+  font-family: Inter;
+`;
+export const RowA = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 3.5rem;
+`;

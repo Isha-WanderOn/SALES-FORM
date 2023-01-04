@@ -7,7 +7,7 @@ export const Marginer = styled.div`
 export const Row = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 25px;
+  margin-bottom: 2.5rem;
 `;
 
 export const Row2 = styled.div`
@@ -22,10 +22,11 @@ export const MainHeading = styled.h1`
 `;
 
 export const H1 = styled.h1`
+  margin-top: 1rem;
   font-size: ${(props) => (props.pay ? "1.8rem" : "1.6rem")};
   line-height: 19.36px;
   font-weight: 600;
-  color: #171717;
+  color: ${(props) => (props.pay ? "#0A9E88" : "#171717")};
 `;
 
 export const Box = styled.div`
