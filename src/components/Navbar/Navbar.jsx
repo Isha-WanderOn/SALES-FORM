@@ -1,14 +1,71 @@
-import logo from '../../assets/images/logo.png'
-import Image from 'next/image'
-import { MainDiv, Logo } from './Navbar.style'
+import logo from "../../assets/images/logo.png";
+import Image from "next/image";
+import { MainDiv, Logo } from "./Navbar.style";
+import Link from "next/link";
 const Navbar = () => {
   return (
     <MainDiv>
-        <Logo>
-            <Image src={logo} alt='logo' fill />
-        </Logo>
+      <Logo>
+        <Image src={logo} alt="logo" fill />
+      </Logo>
+      <div style={{ fontSize: "1.8rem", color: "#ffffff" }}>+91-9652365362</div>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "30vw",
+            paddingRight: "5vw",
+          }}
+        >
+          <Link
+            style={{
+              textDecoration: "none",
+              fontSize: "1.6rem",
+              fontWeight: "400",
+              color: "#ffffff",
+            }}
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            style={{
+              textDecoration: "none",
+              fontSize: "1.6rem",
+              fontWeight: "400",
+              color: "#ffffff",
+            }}
+            href="/gallery"
+          >
+            Gallery
+          </Link>
+          <Link
+            style={{
+              textDecoration: "none",
+              fontSize: "1.6rem",
+              fontWeight: "400",
+              color: "#ffffff",
+            }}
+            href="/blogs"
+          >
+            Blogs
+          </Link>
+          <Link
+            style={{
+              textDecoration: "none",
+              fontSize: "1.6rem",
+              fontWeight: "400",
+              color: "#ffffff",
+            }}
+            href="/about"
+          >
+            About Us
+          </Link>
+        </div>
+      </div>
     </MainDiv>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

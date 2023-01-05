@@ -16,7 +16,7 @@ export const Container = styled.div`
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
-      padding: 12px 12px 7px;
+      padding: 12px 12px 7px 0;
       padding-left: ${(props) => (props.type === "String" ? "100px" : "12px")};
       display: block;
       width: ${(props) => (props.wid === "half" ? "23.35vw" : "49vw")};

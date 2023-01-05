@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useContext } from "react";
+import React from "react";
 import ClientDetails from "../ClientDetails/ClientDetails";
 import { InputSection } from "../ClientDetails/ClientDetails.style";
 import PaymentDetails from "../PaymentDetails/PaymentDetails";

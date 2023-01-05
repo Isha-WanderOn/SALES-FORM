@@ -78,7 +78,7 @@ console.log(phone);
           name="ClientPhone"
           label="Phone Number"
           wid="half"
-          placeholder="9909483710"
+          placeholder="Enter Phone No."
           required
         />
         <Dropdowninput

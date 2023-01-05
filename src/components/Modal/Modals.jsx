@@ -5,7 +5,7 @@ import { InputSection2, Select } from "../DownloadClient/DownloadClient.style";
 import Dropdowninput from "../DropdownInput/Dropdowninput";
 import FormInput from "../FormInputs/FormInput";
 import { BookingButton } from "../LeftSidebar/LeftSidebar.style";
-import { ModalBox, Modaling } from "./Modals.style";
+import { ModalBox, Modaling, ModalOuter } from "./Modals.style";
 
 const Modals = () => {
   const {
@@ -38,6 +38,7 @@ const Modals = () => {
     setGender('');
   }
   return (
+    <ModalOuter>
     <ModalBox>
       <FormInput
         value={name}
@@ -83,6 +84,7 @@ const Modals = () => {
       <BookingButton onClick={handleClick}>Done</BookingButton>
       </InputSection2>
     </ModalBox>
+    </ModalOuter>
   );
 };
 

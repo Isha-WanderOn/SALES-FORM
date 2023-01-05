@@ -6,6 +6,7 @@ export const Container = styled.div`
     position: relative;
     display: flex;
     margin-bottom: 30px;
+    padding-right: 1.72vw;
     height: 54px;
     @media (max-width: 480px) {
       width: ${(props) => (props.wid === "half" ? "49vw" : "49vw")};
@@ -57,8 +58,8 @@ export const Container = styled.div`
         transition: all 0.1s ease;
       }
       @media (max-width: 480px) {
-      width: ${(props) => (props.wid === "half" ? "49vw" : "49vw")};
-    }
+        width: ${(props) => (props.wid === "half" ? "49vw" : "49vw")};
+      }
     }
 
     label {
@@ -90,8 +91,8 @@ export const Container = styled.div`
       pointer-events: none;
       transition: all 0.3s ease;
       @media (max-width: 480px) {
-      width: ${(props) => (props.wid === "half" ? "49vw" : "49vw")};
-    }
+        width: ${(props) => (props.wid === "half" ? "49vw" : "49vw")};
+      }
     }
   }
 `;
