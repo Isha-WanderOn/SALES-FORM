@@ -5,8 +5,6 @@ import FormInput from "../FormInputs/FormInput";
 import Heading from "../Headings/Heading";
 import { OuterDiv } from "../Voucher/Voucher.style";
 import { InputSection, InputSection2, Select } from "./ClientDetails.style";
-import { Button, Modal } from "react-bootstrap";
-import Modals from "../Modal/Modals";
 
 const ClientDetails = () => {
   const {
@@ -14,22 +12,15 @@ const ClientDetails = () => {
     email,
     address,
     phone,
-    voucher,
     gender,
-    show,
-    code,
     setCode,
-    setShow,
     setGender,
-    setVoucher,
     setAddress,
     setEmail,
     setName,
     setPhone,
   } = useContext(Form);
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-console.log(phone);
+
   return (
     <OuterDiv>
       <Heading Heading="Client Details" />

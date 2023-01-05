@@ -31,6 +31,7 @@ const FormContext = (props) => {
   const [code, setCode] = useState('');
   const [salecode, setSaleCode] = useState('');
   const [otherClient, setOtherClient] = useState([]);
+  const [editClient, setEditClient] = useState({});
 
   return (
     <Form.Provider
@@ -63,6 +64,8 @@ const FormContext = (props) => {
         code,
         salecode,
         otherClient,
+        editClient, 
+        setEditClient,
         setOtherClient,
         setSaleCode,
         setCode,

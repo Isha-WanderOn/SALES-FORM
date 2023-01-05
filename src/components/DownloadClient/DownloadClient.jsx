@@ -17,6 +17,7 @@ const DownloadClient = () => {
     voucher,
     gender,
     show,
+    editClient,
     setShow,
     otherClient,
     setOtherClient,
@@ -37,7 +38,7 @@ const DownloadClient = () => {
       </Row>
       <InputSection>
         <FormInput
-          value={name}
+          value={editClient.name}
           type="text"
           onChange={(e) => setName(e.target.value)}
           name="clientName"
@@ -73,7 +74,7 @@ const DownloadClient = () => {
           <option value="+23">+23</option>
         </Select>
         <FormInput
-          value={phone}
+          value={editClient.phone}
           type="String"
           onChange={(e) => setPhone(e.target.value)}
           name="ClientPhone"
@@ -104,7 +105,7 @@ const DownloadClient = () => {
           wid="half"
           label="Gender"
           defaultValue="Select Gender"
-          value={gender}
+          value={editClient.gender}
           onChange={(e) => setGender(e.target.value)}
           required
         >
