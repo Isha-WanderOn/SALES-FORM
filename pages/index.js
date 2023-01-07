@@ -1,11 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from '../src/components/Navbar/Navbar'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import { useContext } from 'react';
+import UserRegistration from '../src/components/Register/RegisterUser';
+import { Form } from '../src/context/FormContext';
 import MainPage from './MainPage/index';
 
 
 export default function Home() {
+  const {signUp} = useContext(Form);
   return (
     <>
       <Head>
@@ -14,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainPage />
+      {signUp ? <MainPage />  : <UserRegistration />}
     </>
   )
 }

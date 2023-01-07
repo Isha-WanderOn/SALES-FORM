@@ -13,10 +13,12 @@ const ClientDetails = () => {
     address,
     phone,
     gender,
-    setCode,
+    clientcode,
+    setClientCode,
+    setDestination,
     setGender,
     setAddress,
-    setEmail,
+    setEmail, 
     setName,
     setPhone,
   } = useContext(Form);
@@ -57,7 +59,7 @@ const ClientDetails = () => {
         />
       </InputSection>
       <InputSection2>
-        <Select onChange={(e)=>setCode(e.target.value)}>
+        <Select value={clientcode} onChange={(e)=>setClientCode(e.target.value)}>
           <option value="+91">+91</option>
           <option value="+11">+11</option>
           <option value="+23">+23</option>
@@ -77,6 +79,7 @@ const ClientDetails = () => {
           label=" Prefered Destination"
           defaultValue="Select Destination"
           required
+          onChange={(e)=>setDestination(e.target.value)}
         >
           <option disabled>Select Destination</option>
           <option value="Manali">Manali</option>

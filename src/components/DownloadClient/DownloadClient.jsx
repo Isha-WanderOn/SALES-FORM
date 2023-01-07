@@ -3,8 +3,7 @@ import { Row } from "../../../pages/BookingSummary/BookingSummary.style";
 import { Form } from "../../context/FormContext";
 import Dropdowninput from "../DropdownInput/Dropdowninput";
 import FormInput from "../FormInputs/FormInput";
-import Heading from "../Headings/Heading";
-import { BookingButton, MainHeading1 } from "../LeftSidebar/LeftSidebar.style";
+import { MainHeading1 } from "../LeftSidebar/LeftSidebar.style";
 import { OuterDiv } from "../Voucher/Voucher.style";
 import { InputSection, InputSection2, Select } from "./DownloadClient.style";
 
@@ -14,15 +13,9 @@ const DownloadClient = () => {
     email,
     address,
     phone,
-    voucher,
+    clientcode,
     gender,
-    show,
-    editClient,
-    setShow,
-    otherClient,
-    setOtherClient,
     setGender,
-    setVoucher,
     setAddress,
     setEmail,
     setName,
@@ -38,7 +31,7 @@ const DownloadClient = () => {
       </Row>
       <InputSection>
         <FormInput
-          value={editClient.name}
+          defaultValue={name}
           type="text"
           onChange={(e) => setName(e.target.value)}
           name="clientName"
@@ -48,7 +41,7 @@ const DownloadClient = () => {
           required
         />
         <FormInput
-          value={email}
+          defaultValue={email}
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           name="clientEmail"
@@ -68,19 +61,19 @@ const DownloadClient = () => {
         />
       </InputSection>
       <InputSection2>
-        <Select>
+        <Select defaultValue={clientcode}>
           <option value="+91">+91</option>
           <option value="+11">+11</option>
           <option value="+23">+23</option>
         </Select>
         <FormInput
-          value={editClient.phone}
+          value={phone}
           type="String"
           onChange={(e) => setPhone(e.target.value)}
           name="ClientPhone"
           label="Phone Number"
           wid="half"
-          placeholder="9909483710"
+          placeholder="Enter Phone Number"
           required
         />
         <Dropdowninput
@@ -104,8 +97,8 @@ const DownloadClient = () => {
         <Dropdowninput
           wid="half"
           label="Gender"
-          defaultValue="Select Gender"
-          value={editClient.gender}
+          defaultValue={gender}
+          value={gender}
           onChange={(e) => setGender(e.target.value)}
           required
         >

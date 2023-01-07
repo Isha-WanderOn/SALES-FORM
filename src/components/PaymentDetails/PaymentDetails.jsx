@@ -9,6 +9,7 @@ import Dropdowninput from "../DropdownInput/Dropdowninput";
 import FormInput from "../FormInputs/FormInput";
 import Heading from "../Headings/Heading";
 import { OuterDiv } from "../Voucher/Voucher.style";
+import Parse from '../../../pages/db';
 
 const PaymentDetails = () => {
   const {
@@ -17,7 +18,6 @@ const PaymentDetails = () => {
     recievedAmt,
     leadSrc,
     salesPhn,
-    salescode,
     payment,
     salesFullname,
     salesEmail,
@@ -33,6 +33,12 @@ const PaymentDetails = () => {
     setSellingAmt,
     setReferenceNo,
   } = useContext(Form);
+
+  const currentUser = Parse.User.current();
+  const salepersonname = currentUser.getUsername();
+  setSalesFullname(salepersonname);
+  const salepersonemail = currentUser.getEmail();
+  setSalesEmail(salepersonemail);
   return (
     <OuterDiv>
       <Heading Heading="Payment Details" />
@@ -72,10 +78,10 @@ const PaymentDetails = () => {
         />
       </InputSection2>
       <InputSection2>
-        <Select onChange={(e)=> setSaleCode(e.target.value)}>
-          <option>+91</option>
-          <option>+11</option>
-          <option>+23</option>
+      <Select onChange={(e)=>setSaleCode(e.target.value)}>
+          <option value="+91">+91</option>
+          <option value="+11">+11</option>
+          <option value="+23">+23</option>
         </Select>
         <FormInput
           value={salesPhn}
@@ -92,12 +98,14 @@ const PaymentDetails = () => {
           label="Lead Source"
           defaultValue="Select Lead Source"
           required
+          value={leadSrc}
+          onChange={(e)=> setLeadSrc(e.target.value)}
         >
           <option disabled>Select Lead Source</option>
-          <option value="">option 1</option>
-          <option value="">option 2</option>
-          <option value="">option 3</option>
-          <option value="">option 4</option>
+          <option value="insta">option 1</option>
+          <option value="family">option 2</option>
+          <option value="website">option 3</option>
+          <option value="other">option 4</option>
         </Dropdowninput>
       </InputSection2>
       <InputSection2>
@@ -118,24 +126,26 @@ const PaymentDetails = () => {
       </InputSection2>
       <InputSection2>
         <FormInput
-          value={salesFullname}
+          // value={salesFullname}
           type="text"
           onChange={(e) => setSalesFullname(e.target.value)}
           name="salespersonfullname"
           label="Sales Person Name"
           wid=""
+          defaultValue={salepersonname}
           placeholder="Enter Sales Person Name"
           required
         />
       </InputSection2>
       <InputSection2>
         <FormInput
-          value={salesEmail}
+          // value={salesEmail}
           type="text"
           onChange={(e) => setSalesEmail(e.target.value)}
           name="salesEmail"
           label="Sales Person Email"
           wid=""
+          defaultValue={salepersonemail}
           placeholder="Enter Email"
           required
         />

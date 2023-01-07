@@ -29,9 +29,16 @@ const FormContext = (props) => {
   const [screenshot, setScreenshot] = useState(null);
   const [show, setShow] = useState(false);
   const [code, setCode] = useState('');
+  const [clientcode, setClientCode] = useState('');
   const [salecode, setSaleCode] = useState('');
   const [otherClient, setOtherClient] = useState([]);
-  const [editClient, setEditClient] = useState({});
+  const [signUp, setSignup] = useState(false);   
+  const [login, setLogin] = useState(false);   
+  const [useremail, setUserEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
+  const [totalAmt, setTotalAmt] = useState(0);
+  const [download, setDownload] = useState(false);
 
   return (
     <Form.Provider
@@ -61,14 +68,26 @@ const FormContext = (props) => {
         Remark,
         screenshot,
         show, 
-        code,
         salecode,
         otherClient,
-        editClient, 
-        setEditClient,
+        signUp, 
+        useremail, 
+        password, 
+        currentUser, 
+        login, 
+        clientcode, 
+        totalAmt,
+        download, 
+        setDownload,
+        setTotalAmt,
+        setClientCode,
+        setLogin,
+        setCurrentUser,
+        setPassword,
+        setUserEmail,
+        setSignup,
         setOtherClient,
         setSaleCode,
-        setCode,
         setShow,
         setCount5k,
         setCount10k,

@@ -14,7 +14,7 @@ export const Container = styled.div`
       font-family: "Roboto";
       font-style: normal;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 1.6rem;
       line-height: 24px;
       padding: 12px 12px 7px 0;
       padding-left: ${(props) => (props.type === "String" ? "100px" : "12px")};
@@ -35,7 +35,7 @@ export const Container = styled.div`
       &:focus ~ label,
       &:not([value=""]) ~ label {
         top: -7px;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: #0a9e88;
         background: #fff;
         padding: 0px 8px;

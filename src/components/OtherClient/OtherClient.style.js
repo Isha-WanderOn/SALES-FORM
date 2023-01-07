@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const OtherClientDiv = styled.div`
-  display: flex;
+  display: inline-flex;
+  width: 90%;
   flex-direction: row;
   background: rgba(10, 158, 136, 0.15);
   border-radius: 4px;

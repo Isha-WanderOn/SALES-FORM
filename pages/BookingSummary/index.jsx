@@ -19,12 +19,7 @@ import {
 } from "./BookingSummary.style";
 
 const BookingSummary = () => {
-  const { refrenceno, count5k, count10k } = useContext(Form);
-  const [download, setDownload] = useState(false);
-
-  const handleDownload = () => {
-    download === true ? setDownload(false) : setDownload(true);
-  };
+  const { refrenceno, count5k, count10k, download } = useContext(Form);
   return (
     <Marginer>
       <Row>
@@ -99,15 +94,16 @@ const BookingSummary = () => {
           </Details>
         </div>
       </Row2>
-      {download === true ? (
-        <><DownloadClient /><OtherClient /></>
-      ) : (
+      {/* {download ? ( */}
+        <>
+          <DownloadClient />
+          <OtherClient />
+        </>
+      {/* ) : (
         <Row>
-          <BookingButton onClick={handleDownload}>
-            Download Booking Voucher
-          </BookingButton>
+          <BookingButton>Download Voucher</BookingButton>
         </Row>
-      )}
+      )} */}
     </Marginer>
   );
 };

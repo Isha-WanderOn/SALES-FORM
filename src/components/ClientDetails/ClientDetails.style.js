@@ -19,7 +19,7 @@ export const InputSection2 = styled.div`
 `;
 
 export const Select = styled.select`
-  width: 6vw;
+  width: 5vw;
   height: 3rem;
   padding: 0.3rem 1.2rem 0.3rem 1.2rem;
   background: #f1f1f1;
