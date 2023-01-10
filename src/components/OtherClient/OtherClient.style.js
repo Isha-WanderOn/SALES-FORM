@@ -15,5 +15,6 @@ export const OtherClientDiv = styled.div`
     font-weight: 500;
     font-size: 15px;
     line-height: 18px;
+    color: #ffffff;
   }
 `;

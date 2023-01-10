@@ -36,7 +36,7 @@ const OtherClient = () => {
 
   const handleClick = () => {
     AddOtherClient();
-    // setDownload(true);
+    setDownload(true);
   };
 
   return (

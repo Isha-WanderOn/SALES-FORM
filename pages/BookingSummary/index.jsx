@@ -94,16 +94,16 @@ const BookingSummary = () => {
           </Details>
         </div>
       </Row2>
-      {/* {download ? ( */}
+      {download ? (
+        <Row>
+          <BookingButton>Download Voucher</BookingButton>
+        </Row>
+      ) : (
         <>
           <DownloadClient />
           <OtherClient />
         </>
-      {/* ) : (
-        <Row>
-          <BookingButton>Download Voucher</BookingButton>
-        </Row>
-      )} */}
+      )}
     </Marginer>
   );
 };

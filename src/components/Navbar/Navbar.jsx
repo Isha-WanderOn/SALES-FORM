@@ -30,7 +30,7 @@ const Navbar = () => {
                 fontWeight: "400",
                 color: "#ffffff",
               }}
-              href={`${signUp}` ? "/" : "/MainPage"}
+              href={`${signUp || login}` ? "/MainPage" : "/"}
             >
               Home
             </Link>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 fontWeight: "400",
                 color: "#ffffff",
               }}
-              href={`${signUp}` ? "/" : "/MainPage"}
+              href="/"
             >
               Home
             </Link>

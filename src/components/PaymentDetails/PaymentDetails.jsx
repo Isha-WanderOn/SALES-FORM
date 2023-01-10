@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Form } from "../../context/FormContext";
 import {
   InputSection,
@@ -9,16 +9,18 @@ import Dropdowninput from "../DropdownInput/Dropdowninput";
 import FormInput from "../FormInputs/FormInput";
 import Heading from "../Headings/Heading";
 import { OuterDiv } from "../Voucher/Voucher.style";
-import Parse from '../../../pages/db';
 
 const PaymentDetails = () => {
   const {
+    login,
+    signup,
     refrenceno,
     sellingAmt,
     recievedAmt,
     leadSrc,
     salesPhn,
     payment,
+    currentUser,
     salesFullname,
     salesEmail,
     Remark,
@@ -33,12 +35,17 @@ const PaymentDetails = () => {
     setSellingAmt,
     setReferenceNo,
   } = useContext(Form);
+  function GetN() {
+    const salepersonname = currentUser.getUsername();
+    setSalesFullname(salepersonname)
+    return salepersonname;
+  }
+  function GetE() {
+    const salepersonemail = currentUser.getEmail();
+    setSalesEmail(salepersonemail);
+    return salepersonemail;
+  }
 
-  const currentUser = Parse.User.current();
-  const salepersonname = currentUser.getUsername();
-  setSalesFullname(salepersonname);
-  const salepersonemail = currentUser.getEmail();
-  setSalesEmail(salepersonemail);
   return (
     <OuterDiv>
       <Heading Heading="Payment Details" />
@@ -78,7 +85,7 @@ const PaymentDetails = () => {
         />
       </InputSection2>
       <InputSection2>
-      <Select onChange={(e)=>setSaleCode(e.target.value)}>
+        <Select onChange={(e) => setSaleCode(e.target.value)}>
           <option value="+91">+91</option>
           <option value="+11">+11</option>
           <option value="+23">+23</option>
@@ -99,7 +106,7 @@ const PaymentDetails = () => {
           defaultValue="Select Lead Source"
           required
           value={leadSrc}
-          onChange={(e)=> setLeadSrc(e.target.value)}
+          onChange={(e) => setLeadSrc(e.target.value)}
         >
           <option disabled>Select Lead Source</option>
           <option value="insta">option 1</option>
@@ -115,7 +122,7 @@ const PaymentDetails = () => {
           defaultValue="Select Payment Method"
           required
           value={payment}
-          onChange={(e)=>setPayment(e.target.value)}
+          onChange={(e) => setPayment(e.target.value)}
         >
           <option disabled>Select Payment Method</option>
           <option value="upi">upi</option>
@@ -132,7 +139,8 @@ const PaymentDetails = () => {
           name="salespersonfullname"
           label="Sales Person Name"
           wid=""
-          defaultValue={salepersonname}
+          // value={salesFullname}
+          defaultValue={currentUser !== null && GetN()}
           placeholder="Enter Sales Person Name"
           required
         />
@@ -145,7 +153,8 @@ const PaymentDetails = () => {
           name="salesEmail"
           label="Sales Person Email"
           wid=""
-          defaultValue={salepersonemail}
+          // value={salesEmail}
+          defaultValue={currentUser !== null && GetE()}
           placeholder="Enter Email"
           required
         />

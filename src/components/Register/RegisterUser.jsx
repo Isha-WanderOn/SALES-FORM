@@ -2,16 +2,16 @@ import React, { useContext, useState } from "react";
 // import Parse from 'parse/dist/parse.min.js';
 import Parse from "../../../pages/db";
 import { Button, Divider, Input } from "antd";
-import Image from "next/image";
 import Link from "next/link";
 import { Form } from "../../context/FormContext";
 
 export default function UserRegistration() {
   // State variables
+
   const [username, setUsername] = useState("");
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
-  const { setSignup } = useContext(Form);
+  const { setSignup, setCurrentUser } = useContext(Form);
   // Functions used by the screen components
   const doUserRegistration = async function () {
     // Note that these values come from state variables that we've declared before
@@ -20,11 +20,16 @@ export default function UserRegistration() {
     const passwordValue = password;
     try {
       // Since the signUp method returns a Promise, we need to call it using await
-      const userToLogin = new Parse.User;
-      userToLogin.set('username', usernameValue);
-      userToLogin.set('email', useremailValue);
-      userToLogin.set('password', passwordValue);
-      const createdUser = await userToLogin.signUp(usernameValue,useremailValue, passwordValue);
+      const userToLogin = new Parse.User();
+      userToLogin.set("username", usernameValue);
+      userToLogin.set("email", useremailValue);
+      userToLogin.set("password", passwordValue);
+      const createdUser = await userToLogin.signUp(
+        usernameValue,
+        useremailValue,
+        passwordValue
+      );
+      getCurrentUser();
       setSignup(true);
       alert(
         `Success! User ${createdUser.getUsername()} was successfully created!`
@@ -36,14 +41,27 @@ export default function UserRegistration() {
       return false;
     }
   };
+  const getCurrentUser = async function () {
+    const currentUser = await Parse.User.current();
+    // Update state variable holding current user
+    setCurrentUser(currentUser);
+    return currentUser;
+  };
 
   return (
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',height: '100vh'}}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <div className="container">
         <h2 className="heading">{"User Signup"}</h2>
         <Divider />
         <div className="form_wrapper">
-        <Input
+          <Input
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Enter Username"
@@ -56,7 +74,7 @@ export default function UserRegistration() {
             placeholder="Enter User Email"
             size="large"
             className="form_input"
-            type='email'
+            type="email"
           />
           <Input
             value={password}
@@ -72,7 +90,7 @@ export default function UserRegistration() {
             onClick={() => doUserRegistration()}
             type="primary"
             className="form_button"
-            color={'#0A9E88'}
+            color={"#0A9E88"}
             size="large"
           >
             Sign Up
@@ -80,7 +98,10 @@ export default function UserRegistration() {
         </div>
         <Divider />
         <div className="form__hint">
-          Already a member ? <Link className='Link_class' href="/Login">Login</Link>
+          Already a member ?{" "}
+          <Link className="Link_class" href="/Login">
+            Login
+          </Link>
         </div>
       </div>
     </div>

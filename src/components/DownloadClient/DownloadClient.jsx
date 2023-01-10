@@ -14,8 +14,10 @@ const DownloadClient = () => {
     address,
     phone,
     clientcode,
+    destination,
     gender,
     setGender,
+    setDestination,
     setAddress,
     setEmail,
     setName,
@@ -79,7 +81,9 @@ const DownloadClient = () => {
         <Dropdowninput
           wid="half"
           label=" Prefered Destination"
-          defaultValue="Select Destination"
+          defaultValue={destination}
+          value={destination}
+          onChange={(e) => setDestination(e.target.value)}
           required
         >
           <option disabled>Select Destination</option>
